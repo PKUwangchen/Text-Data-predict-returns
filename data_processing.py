@@ -116,7 +116,7 @@ def fetch_data(start_date, end_date, collection, time_query_key='TRADE_DT', fact
     if len(data) != 0:
         data[time_query_key] = pd.to_datetime(data[time_query_key])
     return data
-client = pymongo.MongoClient('mongodb://my_tester:123456@10.8.3.37:27017/')
+client = pymongo.MongoClient('mongodb://')
 collection = client['basic_data']['Daily_return_with_cap']
 data_return_raw = fetch_data('2013-12-30', '2023-05-05', collection, time_query_key='TRADE_DT')
 stock_data = data_return_raw[['S_INFO_WINDCODE', 'TRADE_DT', 'S_DQ_OPEN', 'S_DQ_ADJFACTOR', 'S_DQ_VOLUME', 'S_DQ_CLOSE', 'FLOAT_A_SHR']]
